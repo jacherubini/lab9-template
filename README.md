@@ -1,15 +1,15 @@
 # Setup
 This will download Lab 9 locally, allowing you to work on your scripts and upload (push) them back up to GitHub.
 
-1. Clone your lab repository into your ~/ops435/lab9 directory using SSH:
+1. Clone your lab repository into your ~/ops445/lab9 directory using SSH:
 ```bash
-git clone git@github.com:ops435/lab-9-yourgithubusername.git ~/ops435/lab9/
+git clone git@github.com:ops445/lab-9-yourgithubusername.git ~/ops445/lab9/
 ```
 # Submission
 There is no checking script for this lab.
 
 Be sure to include:
-- [ ] `config_ops435.yaml`
+- [ ] `config_ops445.yaml`
 - [ ] `lab9_[seneca_id].txt`
 ```
 
