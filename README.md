@@ -3,7 +3,7 @@ This will download Lab 9 locally, allowing you to work on your scripts and uploa
 
 1. Clone your lab repository into your ~/ops445/lab9 directory using SSH:
 ```bash
-git clone git@github.com:ops435/lab-9-yourgithubusername.git ~/ops445/lab9/
+git clone <ssh link> ~/ops445/lab9/
 ```
 # Submission
 There is no checking script for this lab.
