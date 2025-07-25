@@ -1,0 +1,41 @@
+[WARNING]: Found both group and host with same name: vmlab
+
+PLAY [Configure OPS445 CentOS 7 VM] ********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vmlab]
+
+TASK [Ensure Apache is up to date] *********************************************
+ok: [vmlab]
+
+TASK [Install EPEL repository] *************************************************
+ok: [vmlab]
+
+TASK [Remove 'tree' package if installed] **************************************
+ok: [vmlab]
+
+TASK [Set hostname to jacherubini] *********************************************
+ok: [vmlab]
+
+TASK [Create user 'jacherubini' with sudo access] ******************************
+ok: [vmlab]
+
+TASK [Ensure .ssh directory exists for jacherubini] ****************************
+ok: [vmlab]
+
+TASK [Copy authorized_keys from student to jacherubini] ************************
+ok: [vmlab]
+
+TASK [Create lab directories under /home/jacherubini/ops445/] ******************
+ok: [vmlab] => (item=lab1)
+ok: [vmlab] => (item=lab2)
+ok: [vmlab] => (item=lab3)
+ok: [vmlab] => (item=lab4)
+ok: [vmlab] => (item=lab5)
+ok: [vmlab] => (item=lab6)
+ok: [vmlab] => (item=lab7)
+ok: [vmlab] => (item=lab8)
+
+PLAY RECAP *********************************************************************
+vmlab                      : ok=9    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

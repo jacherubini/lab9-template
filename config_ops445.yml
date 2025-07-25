@@ -1,0 +1,71 @@
+---
+- name: Configure OPS445 CentOS 7 VM
+  hosts: vmlab
+  become: yes
+  vars:
+    seneca_id: jacherubini
+    lab_dirs:
+      - lab1
+      - lab2
+      - lab3
+      - lab4
+      - lab5
+      - lab6
+      - lab7
+      - lab8
+
+  tasks:
+    - name: Ensure Apache is up to date
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Install EPEL repository
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Remove 'tree' package if installed
+      yum:
+        name: tree
+        state: absent
+
+    - name: Set hostname to jacherubini
+      hostname:
+        name: jacherubini
+
+    - name: Create user 'jacherubini' with sudo access
+      user:
+        name: jacherubini
+        groups: wheel
+        append: yes
+        shell: /bin/bash
+        state: present
+        create_home: yes
+
+    - name: Ensure .ssh directory exists for jacherubini
+      file:
+        path: "/home/jacherubini/.ssh"
+        state: directory
+        owner: jacherubini
+        group: jacherubini
+        mode: '0700'
+
+    - name: Copy authorized_keys from student to jacherubini
+      copy:
+        src: /home/student/.ssh/authorized_keys
+        dest: /home/jacherubini/.ssh/authorized_keys
+        owner: jacherubini
+        group: jacherubini
+        mode: '0600'
+        remote_src: yes
+
+    - name: Create lab directories under /home/jacherubini/ops445/
+      file:
+        path: "/home/jacherubini/ops445/{{ item }}"
+        state: directory
+        owner: jacherubini
+        group: jacherubini
+        mode: '0755'
+      loop: "{{ lab_dirs }}"
+
